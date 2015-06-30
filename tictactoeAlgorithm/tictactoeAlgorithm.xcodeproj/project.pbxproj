@@ -1,0 +1,254 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C76867DF1B413BBC00D41C81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C76867DE1B413BBC00D41C81 /* main.m */; };
+		C76867E71B413C2300D41C81 /* DecisionMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = C76867E61B413C2300D41C81 /* DecisionMaker.m */; };
+		C76867EA1B414D4B00D41C81 /* TwoD.m in Sources */ = {isa = PBXBuildFile; fileRef = C76867E91B414D4B00D41C81 /* TwoD.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C76867D91B413BBC00D41C81 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C76867DB1B413BBC00D41C81 /* tictactoeAlgorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tictactoeAlgorithm; sourceTree = BUILT_PRODUCTS_DIR; };
+		C76867DE1B413BBC00D41C81 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C76867E51B413C2300D41C81 /* DecisionMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionMaker.h; sourceTree = "<group>"; };
+		C76867E61B413C2300D41C81 /* DecisionMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionMaker.m; sourceTree = "<group>"; };
+		C76867E81B414D4A00D41C81 /* TwoD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoD.h; sourceTree = "<group>"; };
+		C76867E91B414D4B00D41C81 /* TwoD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoD.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C76867D81B413BBC00D41C81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C76867D21B413BBC00D41C81 = {
+			isa = PBXGroup;
+			children = (
+				C76867DD1B413BBC00D41C81 /* tictactoeAlgorithm */,
+				C76867DC1B413BBC00D41C81 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C76867DC1B413BBC00D41C81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C76867DB1B413BBC00D41C81 /* tictactoeAlgorithm */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C76867DD1B413BBC00D41C81 /* tictactoeAlgorithm */ = {
+			isa = PBXGroup;
+			children = (
+				C76867DE1B413BBC00D41C81 /* main.m */,
+				C76867E81B414D4A00D41C81 /* TwoD.h */,
+				C76867E91B414D4B00D41C81 /* TwoD.m */,
+				C76867E51B413C2300D41C81 /* DecisionMaker.h */,
+				C76867E61B413C2300D41C81 /* DecisionMaker.m */,
+			);
+			path = tictactoeAlgorithm;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C76867DA1B413BBC00D41C81 /* tictactoeAlgorithm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C76867E21B413BBC00D41C81 /* Build configuration list for PBXNativeTarget "tictactoeAlgorithm" */;
+			buildPhases = (
+				C76867D71B413BBC00D41C81 /* Sources */,
+				C76867D81B413BBC00D41C81 /* Frameworks */,
+				C76867D91B413BBC00D41C81 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tictactoeAlgorithm;
+			productName = tictactoeAlgorithm;
+			productReference = C76867DB1B413BBC00D41C81 /* tictactoeAlgorithm */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C76867D31B413BBC00D41C81 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Varindra Hart";
+				TargetAttributes = {
+					C76867DA1B413BBC00D41C81 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = C76867D61B413BBC00D41C81 /* Build configuration list for PBXProject "tictactoeAlgorithm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C76867D21B413BBC00D41C81;
+			productRefGroup = C76867DC1B413BBC00D41C81 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C76867DA1B413BBC00D41C81 /* tictactoeAlgorithm */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C76867D71B413BBC00D41C81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C76867E71B413C2300D41C81 /* DecisionMaker.m in Sources */,
+				C76867DF1B413BBC00D41C81 /* main.m in Sources */,
+				C76867EA1B414D4B00D41C81 /* TwoD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C76867E01B413BBC00D41C81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C76867E11B413BBC00D41C81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C76867E31B413BBC00D41C81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C76867E41B413BBC00D41C81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C76867D61B413BBC00D41C81 /* Build configuration list for PBXProject "tictactoeAlgorithm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C76867E01B413BBC00D41C81 /* Debug */,
+				C76867E11B413BBC00D41C81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C76867E21B413BBC00D41C81 /* Build configuration list for PBXNativeTarget "tictactoeAlgorithm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C76867E31B413BBC00D41C81 /* Debug */,
+				C76867E41B413BBC00D41C81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C76867D31B413BBC00D41C81 /* Project object */;
+}
