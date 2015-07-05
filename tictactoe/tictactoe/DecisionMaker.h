@@ -14,6 +14,7 @@
 @property (nonatomic) int colInput;
 @property (nonatomic) int rowInput;
 @property (nonatomic) NSString *userInput;
+@property (nonatomic) NSString *output;
 
 @property (nonatomic)twoD *board;
 @property (nonatomic) BOOL twoPlayer;
