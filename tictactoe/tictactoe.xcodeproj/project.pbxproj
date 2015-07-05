@@ -14,6 +14,8 @@
 		C74DA2E01B48CCD400D7ABEE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C74DA2DF1B48CCD400D7ABEE /* Images.xcassets */; };
 		C74DA2E31B48CCD400D7ABEE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74DA2E11B48CCD400D7ABEE /* LaunchScreen.xib */; };
 		C74DA2EF1B48CCD400D7ABEE /* tictactoeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C74DA2EE1B48CCD400D7ABEE /* tictactoeTests.m */; };
+		C74DA2FE1B48E3E900D7ABEE /* twoD.m in Sources */ = {isa = PBXBuildFile; fileRef = C74DA2FD1B48E3E900D7ABEE /* twoD.m */; };
+		C74DA3011B48E48C00D7ABEE /* DecisionMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = C74DA3001B48E48C00D7ABEE /* DecisionMaker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		C74DA2E81B48CCD400D7ABEE /* tictactoeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tictactoeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74DA2ED1B48CCD400D7ABEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C74DA2EE1B48CCD400D7ABEE /* tictactoeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tictactoeTests.m; sourceTree = "<group>"; };
+		C74DA2FC1B48E3E900D7ABEE /* twoD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twoD.h; sourceTree = "<group>"; };
+		C74DA2FD1B48E3E900D7ABEE /* twoD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twoD.m; sourceTree = "<group>"; };
+		C74DA2FF1B48E48C00D7ABEE /* DecisionMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionMaker.h; sourceTree = "<group>"; };
+		C74DA3001B48E48C00D7ABEE /* DecisionMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionMaker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,8 @@
 		C74DA2D11B48CCD400D7ABEE /* tictactoe */ = {
 			isa = PBXGroup;
 			children = (
+				C74DA2FC1B48E3E900D7ABEE /* twoD.h */,
+				C74DA2FD1B48E3E900D7ABEE /* twoD.m */,
 				C74DA2D61B48CCD400D7ABEE /* AppDelegate.h */,
 				C74DA2D71B48CCD400D7ABEE /* AppDelegate.m */,
 				C74DA2D91B48CCD400D7ABEE /* ViewController.h */,
@@ -89,6 +97,8 @@
 				C74DA2DF1B48CCD400D7ABEE /* Images.xcassets */,
 				C74DA2E11B48CCD400D7ABEE /* LaunchScreen.xib */,
 				C74DA2D21B48CCD400D7ABEE /* Supporting Files */,
+				C74DA2FF1B48E48C00D7ABEE /* DecisionMaker.h */,
+				C74DA3001B48E48C00D7ABEE /* DecisionMaker.m */,
 			);
 			path = tictactoe;
 			sourceTree = "<group>";
@@ -222,6 +232,8 @@
 				C74DA2DB1B48CCD400D7ABEE /* ViewController.m in Sources */,
 				C74DA2D81B48CCD400D7ABEE /* AppDelegate.m in Sources */,
 				C74DA2D51B48CCD400D7ABEE /* main.m in Sources */,
+				C74DA3011B48E48C00D7ABEE /* DecisionMaker.m in Sources */,
+				C74DA2FE1B48E3E900D7ABEE /* twoD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
