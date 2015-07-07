@@ -311,8 +311,8 @@
         [self printBoard];
         
         if(![self hasNextMove]){
-            printf("TIED! I went easy on you\n");
-            exit (0);
+            self.output = [self.output stringByAppendingString:@"TIED! I went easy on you"];
+            
         }
         
         [self makeMove:i];
@@ -322,12 +322,12 @@
                 if(self.twoPlayer){
                     
                     printf("\nPlayer 1 wins!");
-                    exit(1);
+                    
                 }
                 else{
                     
-                    printf("I let you win.. Whatever\n");
-                    exit(0);
+                    self.output = [self.output stringByAppendingString:@"I let you win.. Whatever"];
+                    
                 }
             }
         }
@@ -337,11 +337,11 @@
                 [self printBoard];
                 if(self.twoPlayer){
                     printf("\nPlayer 2 wins!");
-                    (exit (0));
+                    
                 }
                 else{
-                    printf("YOU LOSEE. GET OWNEDDD!");
-                    exit (0);
+                    self.output =[self.output stringByAppendingString: @"YOU LOSEE. GET OWNEDDD!"];
+                    ;
                 }
             }
         }

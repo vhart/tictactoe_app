@@ -101,15 +101,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="152" y="369" width="97" height="30"/>
-                                </variation>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Column" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lba-Tp-Gbn">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="152" y="424" width="97" height="30"/>
+                                    <rect key="frame" x="99" y="349" width="97" height="30"/>
                                 </variation>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHh-PX-ra5">
@@ -141,6 +133,23 @@
                                     <action selector="Go:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NCU-2J-hcV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPW-Da-pXm">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.96078437569999997" green="0.10588236149999999" blue="0.33725491169999999" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="38" y="399" width="325" height="96"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Column" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lba-Tp-Gbn">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="205" y="349" width="97" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -154,9 +163,10 @@
                                 <exclude reference="Ur5-0L-s6L"/>
                                 <exclude reference="xdz-71-JFL"/>
                                 <exclude reference="P96-cC-YQ3"/>
-                                <exclude reference="Lba-Tp-Gbn"/>
                                 <exclude reference="kHh-PX-ra5"/>
                                 <exclude reference="8NL-Ll-0py"/>
+                                <exclude reference="DPW-Da-pXm"/>
+                                <exclude reference="Lba-Tp-Gbn"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -170,9 +180,10 @@
                                 <include reference="Ur5-0L-s6L"/>
                                 <include reference="xdz-71-JFL"/>
                                 <include reference="P96-cC-YQ3"/>
-                                <include reference="Lba-Tp-Gbn"/>
                                 <include reference="kHh-PX-ra5"/>
                                 <include reference="8NL-Ll-0py"/>
+                                <include reference="DPW-Da-pXm"/>
+                                <include reference="Lba-Tp-Gbn"/>
                             </mask>
                         </variation>
                     </view>
@@ -186,6 +197,7 @@
                         <outlet property="label31" destination="xdz-71-JFL" id="B3N-sm-eeS"/>
                         <outlet property="label32" destination="Ur5-0L-s6L" id="oBr-9C-UoL"/>
                         <outlet property="label33" destination="c5d-c1-wH9" id="oRa-OP-pt1"/>
+                        <outlet property="outputLabel" destination="DPW-Da-pXm" id="wWZ-Ya-rMM"/>
                         <outlet property="textFieldColumnInfo" destination="Lba-Tp-Gbn" id="gPE-Jm-0Z6"/>
                         <outlet property="textFieldRowInfo" destination="P96-cC-YQ3" id="iOx-ak-IoR"/>
                     </connections>

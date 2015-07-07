@@ -25,6 +25,9 @@
 @property (nonatomic) int rowInfo;
 @property (nonatomic) int colInfo;
 @property (nonatomic)DecisionMaker *board;
+@property (weak, nonatomic) IBOutlet UILabel *outputLabel;
+@property (nonatomic) int counter;
+- (void)printBoard;
 @end
 
 @implementation ViewController
@@ -35,15 +38,30 @@
     DecisionMaker *dm = [[DecisionMaker alloc] init];
     self.board = dm;
     [self.board makeBoard];
-    
+    self.board.output=@"";
+    self.outputLabel.text= @"";
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSArray *)labels {
+    return @[
+        self.label11,
+        self.label12,
+        self.label13,
+        self.label21,
+        self.label22,
+        self.label23,
+        self.label31,
+        self.label32,
+        self.label33
+    ];
 }
+
 - (IBAction)Go:(id)sender {
+    
+    if([self.board.output isEqualToString:@""]){
+        
+    
 //    self.rowInfo=[self.textFieldRowInfo.text intValue];
 //    self.colInfo=[self.textFieldColumnInfo.text intValue];
     
@@ -54,6 +72,26 @@
     self.board.colInput = k;
     self.board.turn=1;
     [self.board run];
+    [self printBoard];
+        
+        if(![self.board.output isEqualToString:@""]){
+            self.outputLabel.text = [self.outputLabel.text stringByAppendingString:self.board.output];
+            self.outputLabel.text=[self.outputLabel.text stringByAppendingString:@"\nTo play again press Go!"];
+        }
+    
+    }
+    
+    else{
+        DecisionMaker *dm = [[DecisionMaker alloc] init];
+        self.board = dm;
+        [self.board makeBoard];
+        self.outputLabel.text=[NSString stringWithFormat:@""];
+        self.board.output=@"";
+        [self printBoard];
+    }
+}
+
+-(void)printBoard{
     self.label11.text = [@"0" isEqualToString:[self.board.board objectAtRow:0 column:0]]? [NSString stringWithFormat:@"%@",@" "] : ([@"1" isEqualToString:[self.board.board objectAtRow:0 column:0]]? [NSString stringWithFormat:@"%@",@"X"] :[NSString stringWithFormat:@"%@",@"O"]);
     
     self.label12.text = [@"0" isEqualToString:[self.board.board objectAtRow:0 column:1]]? [NSString stringWithFormat:@"%@",@" "] :( [@"1" isEqualToString:[self.board.board objectAtRow:0 column:1]]? [NSString stringWithFormat:@"%@",@"X"] :[NSString stringWithFormat:@"%@",@"O"]);
