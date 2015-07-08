@@ -28,54 +28,14 @@
 }
 
 -(void)makeMove:(int)counter{
-    char holder[256];
+
     if(!self.twoPlayer && counter%2==1){
-        printf("Your turn. Enter location seperated by a comma with no spaces: ");
-        
+        printf("Your turn. Enter location seperated by a comma with no spaces: \n");
+        printf("\n");
     }
-    int playerNumber = counter%2==1? 1:2;
-    if(self.twoPlayer){
-        printf("Player %d: Choose a position seperated by a comma (no spaces!): ",playerNumber);
-    }
-    if((!self.twoPlayer && counter%2==1) || self.twoPlayer){
-//        while(YES){
-        
-//            scanf("%255[^\n]%*c",holder);
-//            fpurge(stdin);
-//            printf("\n");
-            NSString *c = self.userInput;
-//            BOOL firstCheck = NO;
-//            for(int i = 0; i<[c length]; i++){
-//                if(!isdigit([c characterAtIndex:i]) && [c characterAtIndex:i]!=','){
-//                    printf("Invalid position\nTry again: ");
-//                    firstCheck=YES;
-//                    break;
-//                    //continue;
-//                }
-//            }
-//            if(firstCheck==YES){
-//                continue;
-//            }
-//            
-//            NSArray *parts = [c componentsSeparatedByString:@","];
-//            if([parts count]!=2){
-//                printf("Invalid position\nTry again: ");
-//                
-//                continue;
-//            }
-//            BOOL secondCheck=NO;
-//            for(int i =0; i<[parts count]; i++){
-//                if([parts[i] intValue]<1 || [parts[i] intValue]>[self.board count]){
-//                    printf("Invalid position\nTry again: ");
-//                    secondCheck=YES;
-//                    break;
-//                    //continue;
-//                }
-//            }
-//            
-//            if(secondCheck==YES){
-//                continue;
-//            }
+    
+    if((!self.twoPlayer && counter%2==1)){
+
             int row = self.rowInput-1;
             int col = self.colInput-1;
             NSString *xo = counter%2==1? [NSString stringWithFormat:@"1"]:[NSString stringWithFormat:@"-1"];
@@ -88,27 +48,10 @@
                 return;
             }
         }
-//    }
-    
-    if(!self.twoPlayer && counter%2==0 && self.hardMode_ish==NO){
-        while(YES){
-            int rowPC = arc4random_uniform([self.board count]);
-            int colPC = arc4random_uniform([self.board count]);
-            NSString *pcString = @"-1";
-            if([[self.board objectAtRow:rowPC column:colPC] isEqualToString:@"0"]){
-                [self.board setObject:pcString atRow:rowPC column:colPC];
-                break;
-            }
-            else{
-                continue;
-            }
-        }
-    }
-    
+
     if(!self.twoPlayer && counter%2==0 && self.hardMode_ish==YES){
         while(YES){
-            //            int rowPC = arc4random_uniform([self.board count]);
-            //            int colPC = arc4random_uniform([self.board count]);
+            
             int whichRow=-1;
             int whichCol=-1;
             int whichDiag=-1;
@@ -153,6 +96,9 @@
                 for(int i= 0; i<3; i++){
                     if([[self.board objectAtRow:whichRow column:i] isEqualToString:@"0"]){
                         [self.board setObject:@"-1" atRow:whichRow column:i];
+                        self.pcMove = (3*whichRow) + i;
+                        break;
+                        
                     }
                 }
                 break;
@@ -162,6 +108,8 @@
                 for(int i= 0; i<3; i++){
                     if([[self.board objectAtRow:i column:whichCol] isEqualToString:@"0"]){
                         [self.board setObject:@"-1" atRow:i column:whichCol];
+                        self.pcMove = (3*i) + whichCol;
+                        break;
                     }
                 }
                 break;
@@ -172,6 +120,8 @@
                     for(int i= 0; i<3; i++){
                         if([[self.board objectAtRow:i column:i] isEqualToString:@"0"]){
                             [self.board setObject:@"-1" atRow:i column:i];
+                            self.pcMove = (3*i) + i;
+                            break;
                         }
                     }
                     break;
@@ -182,6 +132,8 @@
                     for (int i= 0; i < 3; i++) {
                         if([[self.board objectAtRow:i column:whichDiag] isEqualToString:@"0"]){
                             [self.board setObject:@"-1" atRow:i column:whichDiag];
+                            self.pcMove = (3*i) + whichDiag;
+                            break;
                         }
                         whichDiag--;
                     }
@@ -189,62 +141,39 @@
                 }
             }
             
-            int rowPC = arc4random_uniform([self.board count]);
-            int colPC = arc4random_uniform([self.board count]);
-            
-            NSString *pcString = @"-1";
-            if([[self.board objectAtRow:rowPC column:colPC] isEqualToString:@"0"]){
-                [self.board setObject:pcString atRow:rowPC column:colPC];
-                break;
+            while(YES){
+                int rowPC = arc4random_uniform([self.board count]);
+                int colPC = arc4random_uniform([self.board count]);
+                
+                NSString *pcString = @"-1";
+                if([[self.board objectAtRow:rowPC column:colPC] isEqualToString:@"0"]){
+                    [self.board setObject:pcString atRow:rowPC column:colPC];
+                    self.pcMove = (3*rowPC) + colPC;
+                    break;
+                }
+                else{
+                    continue;
+                }
             }
-            else{
-                continue;
-            }
+            break;
         }
     }
 }
 -(void)makeBoard{
     int i=3;
-//    while(YES){
-//        printf("Board size: ");
-//        scanf("%d",&i);
-//        fpurge(stdin);
-//        if(3<=i && i<=10){
-//            break;
-//        }
-//    }
+
     
     twoD *gameBoard = [[twoD alloc] initWithRows:i columns:i];
     self.board = gameBoard;
     win = [self.board count];
     lose = -1*win;
     
-//    char singlePlayer[256];
-//    printf("Two Player? Answering anything other than YES or NO will default to playing the PC: ");
-//    scanf("%255[^\n]%*c",singlePlayer);
-//    NSString *c = [NSString stringWithCString:singlePlayer encoding:NSASCIIStringEncoding];
-//    if([c isEqualToString:@"YES"]){
-//        self.twoPlayer=YES;
-//    }
-//    else{
-//        self.twoPlayer=NO;
-//    }
-//    self.hardMode_ish=NO;
-    
+
+    self.output = @"";
     self.hardMode_ish = YES;
     self.twoPlayer = NO;
-//    
-//    if(i==3){
-//        printf("hardish mode?\n y/n");
-//        char answer[256];
-//        memset(answer,'\0',1);
-//        scanf("%255[^\n]%*c",answer);
-//        fpurge(stdin);
-//        if(answer[0]=='y'){
-//            self.hardMode_ish=YES;
-//        }
-//        
-//    }
+    self.gameOver = NO;
+
 }
 
 
@@ -306,28 +235,33 @@
     return NO;
 }
 
+
 -(void)run{
-    for(int i=self.turn; i<=2; i++){
-        [self printBoard];
+    for(int i=1; i<=2; i++){
+        
         
         if(![self hasNextMove]){
+            self.gameOver = YES;
             self.output = [self.output stringByAppendingString:@"TIED! I went easy on you"];
+            break;
             
         }
         
         [self makeMove:i];
+        [self printBoard];
         if(i%2==1){
             if([self checker:[self.board count]]){
                 [self printBoard];
                 if(self.twoPlayer){
                     
                     printf("\nPlayer 1 wins!");
+                    break;
                     
                 }
                 else{
-                    
+                    self.gameOver = YES;
                     self.output = [self.output stringByAppendingString:@"I let you win.. Whatever"];
-                    
+                    break;
                 }
             }
         }
@@ -337,15 +271,18 @@
                 [self printBoard];
                 if(self.twoPlayer){
                     printf("\nPlayer 2 wins!");
+                    break;
                     
                 }
                 else{
+                    self.gameOver = YES;
                     self.output =[self.output stringByAppendingString: @"YOU LOSEE. GET OWNEDDD!"];
-                    ;
+                    break;
+                    
                 }
             }
         }
-        if(!self.twoPlayer && i%2==0){
+        if(!self.twoPlayer && i%2==1 &&[self hasNextMove]){
             printf("\n\n");
             usleep(1e5);
             printf("My turn! (I'm the pc)\n\n");
@@ -358,6 +295,13 @@
 
 }
 
-
-
+-(void)wipe{
+    for(int i =0; i<3;i++){
+        for(int j=0; j<3; j++){
+            [self.board setObject:@"0" atRow:i column:j];
+        }
+    }
+    self.gameOver = NO;
+    self.output = [NSString stringWithFormat:@""];
+}
 @end

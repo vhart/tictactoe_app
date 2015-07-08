@@ -15,14 +15,18 @@
 @property (nonatomic) int rowInput;
 @property (nonatomic) NSString *userInput;
 @property (nonatomic) NSString *output;
+@property (nonatomic) int pcMove;
 
+@property (nonatomic) BOOL gameOver;
 @property (nonatomic)twoD *board;
 @property (nonatomic) BOOL twoPlayer;
 @property (nonatomic) BOOL hardMode_ish;
+
 -(BOOL)checker:(int)winVal;
 -(void)makeMove:(int)counter;
 -(void)makeBoard;
 -(void)printBoard;
 -(void)run;
 -(BOOL)hasNextMove;
+-(void)wipe;
 @end
