@@ -201,6 +201,31 @@
 
             }
             
+            if (self.center && self.turnNumber==2) {
+                [self.board setObject:@"-1" atRow:0 column:0];
+                self.pcMove = (3*0) + 0;
+            }
+            
+            if (self.center && self.corner2 && self.turnNumber==4){
+                if([[self.board objectAtRow:0 column:2] isEqualToString:@"0"]){
+                    [self.board setObject:@"-1" atRow:0 column:2];
+                    self.pcMove = (3*0) + 2;
+                    return;
+                }
+                
+                if([[self.board objectAtRow:2 column:0] isEqualToString:@"0"]){
+                    [self.board setObject:@"-1" atRow:2 column:0];
+                    self.pcMove = (3*2) + 0;
+                    return;
+                }
+                
+                if([[self.board objectAtRow:2 column:2] isEqualToString:@"0"]){
+                    [self.board setObject:@"-1" atRow:2 column:2];
+                    self.pcMove = (3*2) + 2;
+                    return;
+                }
+
+            }
             
             while(YES){
                 int rowPC = arc4random_uniform([self.board count]);
