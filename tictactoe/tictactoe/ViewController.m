@@ -56,7 +56,9 @@
         [self.board run];
         [sender setTitle:@"X" forState:normal];
         [self.buttons[self.board.pcMove] setTitle:@"O" forState:normal];
+        
         if(self.board.gameOver){
+            
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!" message:[NSString stringWithFormat:@"%@\nPress Start for a new game!",self.board.output] preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *defOk = [UIAlertAction actionWithTitle:@"Start" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self setBlank];

@@ -28,27 +28,36 @@
 }
 
 -(void)makeMove:(int)counter{
-
+    
     if(!self.twoPlayer && counter%2==1){
         printf("Your turn. Enter location seperated by a comma with no spaces: \n");
         printf("\n");
     }
     
     if((!self.twoPlayer && counter%2==1)){
-
-            int row = self.rowInput-1;
-            int col = self.colInput-1;
-            NSString *xo = counter%2==1? [NSString stringWithFormat:@"1"]:[NSString stringWithFormat:@"-1"];
-            if([[self.board objectAtRow:row column:col] isEqualToString:@"0"]){
-                [self.board setObject:xo atRow:row column:col];
-                return;
+        
+        int row = self.rowInput-1;
+        int col = self.colInput-1;
+        NSString *xo = counter%2==1? [NSString stringWithFormat:@"1"]:[NSString stringWithFormat:@"-1"];
+        if([[self.board objectAtRow:row column:col] isEqualToString:@"0"]){
+            
+            if(self.turnNumber==1){
+                [self determineCenterMiddleOrCornerRow:row Column:col];
             }
-            else{
-                printf("Position already taken\nTry again: ");
-                return;
+            
+            if(self.turnNumber==3){
+                [self determineCenterMiddleOrCornerRow:row Column:col];
             }
+            
+            [self.board setObject:xo atRow:row column:col];
+            return;
         }
-
+        else{
+            printf("Position already taken\nTry again: ");
+            return;
+        }
+    }
+    
     if(!self.twoPlayer && counter%2==0 && self.hardMode_ish==YES){
         while(YES){
             
@@ -141,6 +150,58 @@
                 }
             }
             
+            
+            if ((self.corner1 && self.turnNumber==2) || (self.mid1 && self.turnNumber==2)){
+                [self.board setObject:@"-1" atRow:1 column:1];
+                self.pcMove = (3*1) + 1;
+                return;
+            }
+            else if(self.turnNumber == 2 && self.center){
+                [self.board setObject:@"-1" atRow:0 column:0];
+                self.pcMove = (3*0) + 0;
+                return;
+            }
+            
+            if (self.corner1 && self.corner2 && self.turnNumber==4) {
+                [self.board setObject:@"-1" atRow:0 column:1];
+                self.pcMove = (3*0) + 1;
+                return;
+            }
+            
+            if(self.mid1 && self.mid2 && self.turnNumber==4){
+                if((self.mid1_i==self.mid2_i) || (self.mid1_j == self.mid2_j)){
+                    [self.board setObject:@"-1" atRow:0 column:0];
+                    self.pcMove = (3*0) + 0;
+                    return;
+                }
+                
+                else{
+                    for(int i=0; i<3; i++){
+                        for(int j=0; j<3; j++){
+                            if(((-1 + [self.board rowSum:i] ==0) || (-1 + [self.board columnSum:j]==0)) && ([[self.board objectAtRow:i column:j] isEqualToString:@"0"]) ) {
+                                [self.board setObject:@"-1" atRow:i column:j];
+                                self.pcMove = (3*i) + j;
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            if (((self.mid1 && self.corner2) || (self.mid2 && self.corner1)) && self.turnNumber==4 ){
+                for(int i=0; i<3; i++){
+                    for(int j=0; j<3; j++){
+                        if(((-1 + [self.board rowSum:i] ==0) && (-1 + [self.board columnSum:j]==0)) && ([[self.board objectAtRow:i column:j] isEqualToString:@"0"]) ) {
+                            [self.board setObject:@"-1" atRow:i column:j];
+                            self.pcMove = (3*i) + j;
+                            return;
+                        }
+                    }
+                }
+
+            }
+            
+            
             while(YES){
                 int rowPC = arc4random_uniform([self.board count]);
                 int colPC = arc4random_uniform([self.board count]);
@@ -161,19 +222,19 @@
 }
 -(void)makeBoard{
     int i=3;
-
+    
     
     twoD *gameBoard = [[twoD alloc] initWithRows:i columns:i];
     self.board = gameBoard;
     win = [self.board count];
     lose = -1*win;
     
-
+    self.turnNumber = 0;
     self.output = @"";
     self.hardMode_ish = YES;
     self.twoPlayer = NO;
     self.gameOver = NO;
-
+    
 }
 
 
@@ -238,7 +299,7 @@
 
 -(void)run{
     for(int i=1; i<=2; i++){
-        
+        self.turnNumber +=1;
         
         if(![self hasNextMove]){
             self.gameOver = YES;
@@ -247,7 +308,7 @@
             
         }
         
-        [self makeMove:i];
+        [self makeMove:self.turnNumber];
         [self printBoard];
         if(i%2==1){
             if([self checker:[self.board count]]){
@@ -287,12 +348,38 @@
             usleep(1e5);
             printf("My turn! (I'm the pc)\n\n");
         }
-    
+        
         usleep(2e5);
         
     }
     
+    
+}
 
+-(void)determineCenterMiddleOrCornerRow:(int)row Column:(int)col{
+    if (((row==0 && col==0) || (row==0 && col==2) || (row==2 && col==0) || (row==2 && col==2)) && self.turnNumber==1) {
+        self.corner1 =YES;
+    }
+    
+    if (((row==0 && col==0) || (row==0 && col==2) || (row==2 && col==0) || (row==2 && col==2)) && self.turnNumber==3) {
+        self.corner2 =YES;
+    }
+    
+    if (((row==0 && col==1) || (row==1 && col==0) || (row==1 && col==2) || (row==2 && col==1)) && self.turnNumber==1) {
+        self.mid1 =YES;
+        self.mid1_i = row;
+        self.mid1_j = col;
+    }
+    
+    if (((row==0 && col==1) || (row==1 && col==0) || (row==1 && col==2) || (row==2 && col==1)) && self.turnNumber==3) {
+        self.mid2 =YES;
+        self.mid2_i = row;
+        self.mid2_j = col;
+    }
+    
+    if (row==1 && col==1) {
+        self.center = YES;
+    }
 }
 
 -(void)wipe{
@@ -303,5 +390,11 @@
     }
     self.gameOver = NO;
     self.output = [NSString stringWithFormat:@""];
+    self.turnNumber = 0;
+    self.mid1=NO;
+    self.mid2=NO;
+    self.center=NO;
+    self.corner1=NO;
+    self.corner2=NO;
 }
 @end
