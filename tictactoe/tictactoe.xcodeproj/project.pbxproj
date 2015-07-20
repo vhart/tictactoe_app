@@ -87,6 +87,8 @@
 		C74DA2D11B48CCD400D7ABEE /* tictactoe */ = {
 			isa = PBXGroup;
 			children = (
+				C74DA2FF1B48E48C00D7ABEE /* DecisionMaker.h */,
+				C74DA3001B48E48C00D7ABEE /* DecisionMaker.m */,
 				C74DA2FC1B48E3E900D7ABEE /* twoD.h */,
 				C74DA2FD1B48E3E900D7ABEE /* twoD.m */,
 				C74DA2D61B48CCD400D7ABEE /* AppDelegate.h */,
@@ -97,8 +99,6 @@
 				C74DA2DF1B48CCD400D7ABEE /* Images.xcassets */,
 				C74DA2E11B48CCD400D7ABEE /* LaunchScreen.xib */,
 				C74DA2D21B48CCD400D7ABEE /* Supporting Files */,
-				C74DA2FF1B48E48C00D7ABEE /* DecisionMaker.h */,
-				C74DA3001B48E48C00D7ABEE /* DecisionMaker.m */,
 			);
 			path = tictactoe;
 			sourceTree = "<group>";
@@ -428,6 +428,7 @@
 				C74DA2F41B48CCD500D7ABEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C74DA2F51B48CCD500D7ABEE /* Build configuration list for PBXNativeTarget "tictactoeTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +437,7 @@
 				C74DA2F71B48CCD500D7ABEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
