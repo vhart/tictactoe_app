@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,9 +19,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tropicalBeach" translatesAutoresizingMaskIntoConstraints="NO" id="nQK-GN-ao1">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="20" width="400" height="580"/>
-                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cc4-H5-SoC">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -168,6 +166,9 @@
                                         <integer key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="175" y="327" width="50" height="50"/>
@@ -187,6 +188,9 @@
                                         <integer key="value" value="35"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="165" y="480" width="70" height="70"/>
@@ -207,6 +211,9 @@
                                         <integer key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="170" y="399" width="60" height="60"/>
@@ -217,6 +224,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="nQK-GN-ao1" secondAttribute="bottom" id="2IC-lV-qH3"/>
+                            <constraint firstItem="nQK-GN-ao1" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="GBr-bS-Jla"/>
+                            <constraint firstItem="nQK-GN-ao1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Ud2-jb-0fD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nQK-GN-ao1" secondAttribute="trailing" constant="-16" id="WwB-Jq-ZLk"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="nQK-GN-ao1"/>
@@ -232,6 +245,12 @@
                                 <exclude reference="JHm-65-eu5"/>
                                 <exclude reference="Jzh-MQ-VB5"/>
                                 <exclude reference="8NL-Ll-0py"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="GBr-bS-Jla"/>
+                                <exclude reference="Ud2-jb-0fD"/>
+                                <exclude reference="WwB-Jq-ZLk"/>
+                                <exclude reference="2IC-lV-qH3"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -249,6 +268,12 @@
                                 <include reference="JHm-65-eu5"/>
                                 <include reference="Jzh-MQ-VB5"/>
                                 <include reference="8NL-Ll-0py"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="GBr-bS-Jla"/>
+                                <include reference="Ud2-jb-0fD"/>
+                                <include reference="WwB-Jq-ZLk"/>
+                                <include reference="2IC-lV-qH3"/>
                             </mask>
                         </variation>
                     </view>
