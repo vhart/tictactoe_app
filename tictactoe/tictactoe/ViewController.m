@@ -86,12 +86,31 @@
     
     }
 }
-
-
-- (IBAction)Go:(id)sender {
-    
-    if([self.board.output isEqualToString:@""]){
-        
-    }
+- (IBAction)easy:(id)sender {
+    [self setBlank];
+    self.board.medium = NO;
+    self.board.easy = YES;
+    self.board.hard = NO;
+    [self.board wipe];
 }
+
+
+- (IBAction)Medium:(id)sender {
+    
+    [self setBlank];
+    self.board.medium = YES;
+    self.board.easy = NO;
+    self.board.hard = NO;
+    [self.board wipe];
+    
+}
+
+- (IBAction)Hard:(id)sender {
+    [self setBlank];
+    self.board.medium = NO;
+    self.board.easy = NO;
+    self.board.hard = YES;
+    [self.board wipe];
+}
+
 @end

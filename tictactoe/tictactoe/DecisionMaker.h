@@ -32,6 +32,9 @@
 @property (nonatomic)twoD *board;
 @property (nonatomic) BOOL twoPlayer;
 @property (nonatomic) BOOL hardMode_ish;
+@property (nonatomic) BOOL easy;
+@property (nonatomic) BOOL medium;
+@property (nonatomic) BOOL hard;
 
 -(BOOL)checker:(int)winVal;
 -(void)makeMove:(int)counter;

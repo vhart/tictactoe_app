@@ -59,174 +59,177 @@
     }
     
     if(!self.twoPlayer && counter%2==0 && self.hardMode_ish==YES){
+        
         while(YES){
-            
-            int whichRow=-1;
-            int whichCol=-1;
-            int whichDiag=-1;
-            for(int i= 0; i<3; i++){
-                if([self.board rowSum:i]==-2){
-                    whichRow =i;
-                    break;
-                }
-                if([self.board columnSum:i]==-2 ){
-                    whichCol =i;
-                    break;
-                }
-                if(i==0 || i==2) {
-                    if([self.board diagonalSum:i]==-2){
-                        whichDiag =i;
-                        break;
-                    }
-                }
-            }
-            
-            if(whichDiag==-1 && whichCol==-1 && whichRow==-1){
+            if(self.hard || self.medium){
+                int whichRow=-1;
+                int whichCol=-1;
+                int whichDiag=-1;
                 for(int i= 0; i<3; i++){
-                    if([self.board rowSum:i]==2){
+                    if([self.board rowSum:i]==-2){
                         whichRow =i;
                         break;
                     }
-                    if([self.board columnSum:i]==2){
+                    if([self.board columnSum:i]==-2 ){
                         whichCol =i;
                         break;
                     }
                     if(i==0 || i==2) {
-                        if([self.board diagonalSum:i]==2){
+                        if([self.board diagonalSum:i]==-2){
                             whichDiag =i;
                             break;
                         }
                     }
                 }
-            }
-            
-            
-            if(whichRow!=-1){
-                for(int i= 0; i<3; i++){
-                    if([[self.board objectAtRow:whichRow column:i] isEqualToString:@"0"]){
-                        [self.board setObject:@"-1" atRow:whichRow column:i];
-                        self.pcMove = (3*whichRow) + i;
-                        break;
-                        
-                    }
-                }
-                break;
-            }
-            
-            if(whichCol!=-1){
-                for(int i= 0; i<3; i++){
-                    if([[self.board objectAtRow:i column:whichCol] isEqualToString:@"0"]){
-                        [self.board setObject:@"-1" atRow:i column:whichCol];
-                        self.pcMove = (3*i) + whichCol;
-                        break;
-                    }
-                }
-                break;
-            }
-            
-            if(whichDiag!=-1){
-                if(whichDiag==0){
+                
+                if(whichDiag==-1 && whichCol==-1 && whichRow==-1){
                     for(int i= 0; i<3; i++){
-                        if([[self.board objectAtRow:i column:i] isEqualToString:@"0"]){
-                            [self.board setObject:@"-1" atRow:i column:i];
-                            self.pcMove = (3*i) + i;
+                        if([self.board rowSum:i]==2){
+                            whichRow =i;
                             break;
                         }
-                    }
-                    break;
-                }
-                
-                if(whichDiag==2){
-                    
-                    for (int i= 0; i < 3; i++) {
-                        if([[self.board objectAtRow:i column:whichDiag] isEqualToString:@"0"]){
-                            [self.board setObject:@"-1" atRow:i column:whichDiag];
-                            self.pcMove = (3*i) + whichDiag;
+                        if([self.board columnSum:i]==2){
+                            whichCol =i;
                             break;
                         }
-                        whichDiag--;
-                    }
-                    break;
-                }
-            }
-            
-            
-            if ((self.corner1 && self.turnNumber==2) || (self.mid1 && self.turnNumber==2)){
-                [self.board setObject:@"-1" atRow:1 column:1];
-                self.pcMove = (3*1) + 1;
-                return;
-            }
-            else if(self.turnNumber == 2 && self.center){
-                [self.board setObject:@"-1" atRow:0 column:0];
-                self.pcMove = (3*0) + 0;
-                return;
-            }
-            
-            if (self.corner1 && self.corner2 && self.turnNumber==4) {
-                [self.board setObject:@"-1" atRow:0 column:1];
-                self.pcMove = (3*0) + 1;
-                return;
-            }
-            
-            if(self.mid1 && self.mid2 && self.turnNumber==4){
-                if((self.mid1_i==self.mid2_i) || (self.mid1_j == self.mid2_j)){
-                    [self.board setObject:@"-1" atRow:0 column:0];
-                    self.pcMove = (3*0) + 0;
-                    return;
-                }
-                
-                else{
-                    for(int i=0; i<3; i++){
-                        for(int j=0; j<3; j++){
-                            if(((-1 + [self.board rowSum:i] ==0) || (-1 + [self.board columnSum:j]==0)) && ([[self.board objectAtRow:i column:j] isEqualToString:@"0"]) ) {
-                                [self.board setObject:@"-1" atRow:i column:j];
-                                self.pcMove = (3*i) + j;
-                                return;
+                        if(i==0 || i==2) {
+                            if([self.board diagonalSum:i]==2){
+                                whichDiag =i;
+                                break;
                             }
                         }
                     }
                 }
-            }
-            
-            if (((self.mid1 && self.corner2) || (self.mid2 && self.corner1)) && self.turnNumber==4 ){
-                for(int i=0; i<3; i++){
-                    for(int j=0; j<3; j++){
-                        if(((-1 + [self.board rowSum:i] ==0) && (-1 + [self.board columnSum:j]==0)) && ([[self.board objectAtRow:i column:j] isEqualToString:@"0"]) ) {
-                            [self.board setObject:@"-1" atRow:i column:j];
-                            self.pcMove = (3*i) + j;
-                            return;
+                
+                
+                if(whichRow!=-1){
+                    for(int i= 0; i<3; i++){
+                        if([[self.board objectAtRow:whichRow column:i] isEqualToString:@"0"]){
+                            [self.board setObject:@"-1" atRow:whichRow column:i];
+                            self.pcMove = (3*whichRow) + i;
+                            break;
+                            
                         }
                     }
-                }
-
-            }
-            
-            if (self.center && self.turnNumber==2) {
-                [self.board setObject:@"-1" atRow:0 column:0];
-                self.pcMove = (3*0) + 0;
-            }
-            
-            if (self.center && self.corner2 && self.turnNumber==4){
-                if([[self.board objectAtRow:0 column:2] isEqualToString:@"0"]){
-                    [self.board setObject:@"-1" atRow:0 column:2];
-                    self.pcMove = (3*0) + 2;
-                    return;
+                    break;
                 }
                 
-                if([[self.board objectAtRow:2 column:0] isEqualToString:@"0"]){
-                    [self.board setObject:@"-1" atRow:2 column:0];
-                    self.pcMove = (3*2) + 0;
-                    return;
+                if(whichCol!=-1){
+                    for(int i= 0; i<3; i++){
+                        if([[self.board objectAtRow:i column:whichCol] isEqualToString:@"0"]){
+                            [self.board setObject:@"-1" atRow:i column:whichCol];
+                            self.pcMove = (3*i) + whichCol;
+                            break;
+                        }
+                    }
+                    break;
                 }
                 
-                if([[self.board objectAtRow:2 column:2] isEqualToString:@"0"]){
-                    [self.board setObject:@"-1" atRow:2 column:2];
-                    self.pcMove = (3*2) + 2;
-                    return;
+                if(whichDiag!=-1){
+                    if(whichDiag==0){
+                        for(int i= 0; i<3; i++){
+                            if([[self.board objectAtRow:i column:i] isEqualToString:@"0"]){
+                                [self.board setObject:@"-1" atRow:i column:i];
+                                self.pcMove = (3*i) + i;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    
+                    if(whichDiag==2){
+                        
+                        for (int i= 0; i < 3; i++) {
+                            if([[self.board objectAtRow:i column:whichDiag] isEqualToString:@"0"]){
+                                [self.board setObject:@"-1" atRow:i column:whichDiag];
+                                self.pcMove = (3*i) + whichDiag;
+                                break;
+                            }
+                            whichDiag--;
+                        }
+                        break;
+                    }
                 }
-
+                
+                if  (self.hard) {
+                    
+                    if ((self.corner1 && self.turnNumber==2) || (self.mid1 && self.turnNumber==2)){
+                        [self.board setObject:@"-1" atRow:1 column:1];
+                        self.pcMove = (3*1) + 1;
+                        return;
+                    }
+                    else if(self.turnNumber == 2 && self.center){
+                        [self.board setObject:@"-1" atRow:0 column:0];
+                        self.pcMove = (3*0) + 0;
+                        return;
+                    }
+                    
+                    if (self.corner1 && self.corner2 && self.turnNumber==4) {
+                        [self.board setObject:@"-1" atRow:0 column:1];
+                        self.pcMove = (3*0) + 1;
+                        return;
+                    }
+                    
+                    if(self.mid1 && self.mid2 && self.turnNumber==4){
+                        if((self.mid1_i==self.mid2_i) || (self.mid1_j == self.mid2_j)){
+                            [self.board setObject:@"-1" atRow:0 column:0];
+                            self.pcMove = (3*0) + 0;
+                            return;
+                        }
+                        
+                        else{
+                            for(int i=0; i<3; i++){
+                                for(int j=0; j<3; j++){
+                                    if(((-1 + [self.board rowSum:i] ==0) || (-1 + [self.board columnSum:j]==0)) && ([[self.board objectAtRow:i column:j] isEqualToString:@"0"]) ) {
+                                        [self.board setObject:@"-1" atRow:i column:j];
+                                        self.pcMove = (3*i) + j;
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    if (((self.mid1 && self.corner2) || (self.mid2 && self.corner1)) && self.turnNumber==4 ){
+                        for(int i=0; i<3; i++){
+                            for(int j=0; j<3; j++){
+                                if(((-1 + [self.board rowSum:i] ==0) && (-1 + [self.board columnSum:j]==0)) && ([[self.board objectAtRow:i column:j] isEqualToString:@"0"]) ) {
+                                    [self.board setObject:@"-1" atRow:i column:j];
+                                    self.pcMove = (3*i) + j;
+                                    return;
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                    if (self.center && self.turnNumber==2) {
+                        [self.board setObject:@"-1" atRow:0 column:0];
+                        self.pcMove = (3*0) + 0;
+                    }
+                    
+                    if (self.center && self.corner2 && self.turnNumber==4){
+                        if([[self.board objectAtRow:0 column:2] isEqualToString:@"0"]){
+                            [self.board setObject:@"-1" atRow:0 column:2];
+                            self.pcMove = (3*0) + 2;
+                            return;
+                        }
+                        
+                        if([[self.board objectAtRow:2 column:0] isEqualToString:@"0"]){
+                            [self.board setObject:@"-1" atRow:2 column:0];
+                            self.pcMove = (3*2) + 0;
+                            return;
+                        }
+                        
+                        if([[self.board objectAtRow:2 column:2] isEqualToString:@"0"]){
+                            [self.board setObject:@"-1" atRow:2 column:2];
+                            self.pcMove = (3*2) + 2;
+                            return;
+                        }
+                        
+                    }
+                }
             }
-            
             while(YES){
                 int rowPC = arc4random_uniform([self.board count]);
                 int colPC = arc4random_uniform([self.board count]);
@@ -259,6 +262,9 @@
     self.hardMode_ish = YES;
     self.twoPlayer = NO;
     self.gameOver = NO;
+    self.easy = YES;
+    self.medium =  NO;
+    self.hard = NO;
     
 }
 
