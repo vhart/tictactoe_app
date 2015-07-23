@@ -13,6 +13,7 @@
 @interface ViewController ()
 
 
+@property (weak, nonatomic) IBOutlet UILabel *difficultyIndicator;
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *buttons;
 
 
@@ -92,6 +93,7 @@
     self.board.easy = YES;
     self.board.hard = NO;
     [self.board wipe];
+    self.difficultyIndicator.backgroundColor = [UIColor yellowColor];
 }
 
 
@@ -102,6 +104,7 @@
     self.board.easy = NO;
     self.board.hard = NO;
     [self.board wipe];
+    self.difficultyIndicator.backgroundColor = [UIColor orangeColor];
     
 }
 
@@ -111,6 +114,7 @@
     self.board.easy = NO;
     self.board.hard = YES;
     [self.board wipe];
+    self.difficultyIndicator.backgroundColor = [UIColor redColor];
 }
 
 @end

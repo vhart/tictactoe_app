@@ -222,6 +222,22 @@
                                     <action selector="Medium:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ET4-Kv-2KS"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwH-Vx-NiC">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.9450981021" green="0.95686280729999995" blue="0.32549020649999999" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="33" width="16" height="16"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -245,6 +261,7 @@
                                 <exclude reference="JHm-65-eu5"/>
                                 <exclude reference="Jzh-MQ-VB5"/>
                                 <exclude reference="8NL-Ll-0py"/>
+                                <exclude reference="hwH-Vx-NiC"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="GBr-bS-Jla"/>
@@ -268,6 +285,7 @@
                                 <include reference="JHm-65-eu5"/>
                                 <include reference="Jzh-MQ-VB5"/>
                                 <include reference="8NL-Ll-0py"/>
+                                <include reference="hwH-Vx-NiC"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="GBr-bS-Jla"/>
@@ -278,6 +296,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="difficultyIndicator" destination="hwH-Vx-NiC" id="h5s-4t-Cj9"/>
                         <outletCollection property="buttons" destination="cc4-H5-SoC" id="r8W-Vv-ch2"/>
                         <outletCollection property="buttons" destination="6iu-wA-9IK" id="3mS-mF-24I"/>
                         <outletCollection property="buttons" destination="iGl-EM-Aeg" id="964-cb-LU5"/>
