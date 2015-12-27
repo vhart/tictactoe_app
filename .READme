@@ -1,8 +1,0 @@
-Tic Tac Toe app, very basic at the moment
-includes pc logic for basic offense and defense
-runs once and closes upon win/lose. Could be edited to run
-multiple times.
-
-tictactoealgorithm is the command line version of the game
-
-tictactoe is the iOS version
