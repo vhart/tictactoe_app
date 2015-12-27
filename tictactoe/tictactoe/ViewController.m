@@ -65,11 +65,9 @@
                 [self setBlank];
                 [self.board wipe];
             }];
-            UIAlertAction *defQuit = [UIAlertAction actionWithTitle:@"Quit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                exit(0);
-            }];
+
             [alert addAction:defOk];
-            [alert addAction:defQuit];
+
             [self presentViewController:alert animated:YES completion:nil];
 //            
 //                                        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
